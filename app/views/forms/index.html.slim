@@ -1,0 +1,26 @@
+h1 Forms#index
+p Find me in app/views/forms/index.html.slim
+
+= form_for :form, html: {class: "form-horizontal", id: "form-input"} do |f|
+  .form-group
+    = f.label :requestor, class: "col-sm-2"
+    .col-sm-10
+      = f.text_field :requestor, class: "form-control"
+  .form-group
+    = f.label :company_name, class: "col-sm-2"
+    .col-sm-10
+      = f.text_field :company_name, class: "form-control"
+  .form-group
+    = f.label :secretary, class: "col-sm-2"
+    .col-sm-10
+      = f.text_field :secretary, class: "form-control"
+  .form-group
+    = fields_for :with_po do |po|
+      = po.label :engineer, class: "col-sm-2"
+      .col-sm-10
+        = f.text_field :engineer, class: "form-control"
+  .form-group
+    = f.label :payment_type, class: "col-sm-2"
+    .col-sm-10
+      = f.select :payment_type, %w(Check Cash)
+  = f.submit
