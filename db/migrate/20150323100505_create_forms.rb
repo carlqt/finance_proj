@@ -8,8 +8,12 @@ class CreateForms < ActiveRecord::Migration
       t.string :company_name
       t.decimal :total_amount
       t.string :supplier
+      t.integer :formable_id
+      t.string :formable_type
 
       t.timestamps null: false
     end
+
+    add_index :forms, :formable_id
   end
 end

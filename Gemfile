@@ -29,6 +29,7 @@ gem 'autoprefixer-rails'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'devise'
+gem 'workflow'
 
 
 # Use ActiveModel has_secure_password
