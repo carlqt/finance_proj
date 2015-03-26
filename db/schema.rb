@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 20150325043637) do
     t.string   "company_name"
     t.decimal  "total_amount"
     t.string   "supplier"
-    t.integer  "formable_id"
-    t.string   "formable_type"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "actable_id"
+    t.string   "actable_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "forms", ["formable_id"], name: "index_forms_on_formable_id"
+  add_index "forms", ["actable_id"], name: "index_forms_on_actable_id"
 
   create_table "items_tables", force: :cascade do |t|
     t.integer  "itemable_id"

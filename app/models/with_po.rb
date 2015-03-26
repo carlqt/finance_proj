@@ -12,4 +12,5 @@
 #
 
 class WithPo < ActiveRecord::Base
+  acts_as :form
 end

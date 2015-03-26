@@ -30,6 +30,7 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'devise'
 gem 'workflow'
+gem 'active_record-acts_as'
 
 
 # Use ActiveModel has_secure_password
