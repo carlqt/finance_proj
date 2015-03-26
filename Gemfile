@@ -32,7 +32,6 @@ gem 'devise'
 gem 'workflow'
 gem 'active_record-acts_as'
 
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -45,15 +44,16 @@ gem 'active_record-acts_as'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'annotate'
-  gem 'xray-rails'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'puma'
   gem 'slim-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'factory_girl_rails'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
