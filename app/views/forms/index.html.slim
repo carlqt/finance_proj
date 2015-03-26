@@ -1,5 +1,4 @@
-h1 Forms#index
-p Find me in app/views/forms/index.html.slim
+h1 Form with PO
 
 = form_for :form, html: {class: "form-horizontal", id: "form-input"} do |f|
   .form-group
@@ -23,4 +22,18 @@ p Find me in app/views/forms/index.html.slim
     = f.label :payment_type, class: "col-sm-2"
     .col-sm-10
       = f.select :payment_type, %w(Check Cash)
-  = f.submit
+  .form-group
+    = f.label :jo, 'Jo#', class: "col-sm-2"
+    .col-sm-10
+      = f.number_field :jo
+  .form-group
+    = f.label :page, 'Page #', class: "col-sm-2"
+    .col-sm-10
+      = f.number_field :page
+  .form-group
+    = f.label :amount, class: "col-sm-2"
+    .col-sm-10
+      = f.text_field :amount
+
+
+  = f.submit "Submit", class: "btn btn-primary"
