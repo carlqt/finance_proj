@@ -1,0 +1,37 @@
+= form_for @po, url: with_po_path, html: {class: "form-horizontal", id: "form-input"} do |f|
+  .form-group
+    = f.label :requestor, class: "col-sm-2"
+    .col-sm-10
+      = f.text_field :requestor, class: "form-control"
+  .form-group
+    = f.label :company_name, class: "col-sm-2"
+    .col-sm-10
+      = f.text_field :company_name, class: "form-control"
+  .form-group
+    = f.label :secretary, class: "col-sm-2"
+    .col-sm-10
+      = f.text_field :secretary, class: "form-control"
+  .form-group
+    = f.label :engineer, class: "col-sm-2"
+    .col-sm-10
+      = f.text_field :engineer, class: "form-control"
+  .form-group
+    = f.label :payment_type, class: "col-sm-2"
+    .col-sm-10
+      = f.select :payment_type, %w(Check Cash)
+  .form-group
+    = f.label :jo, 'Jo#', class: "col-sm-2"
+    .col-sm-10
+      = f.number_field :jo
+  .form-group
+    = f.label :page, 'Page #', class: "col-sm-2"
+    .col-sm-10
+      = f.number_field :page
+  .form-group
+    = f.label :total_amount, class: "col-sm-2"
+    .col-sm-10
+      = f.text_field :total_amount
+
+  .btn-group.btn-group-lg role="group" aria-label="Large button group"
+    = f.submit "Submit", class: "btn btn-primary"
+    = f.submit "Save", name: :save, class: "btn btn-primary"
