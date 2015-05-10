@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :forms, only: [:index]
   resource :with_po, only: [:create, :new]
   resource :without_po, only: [:create, :new]
