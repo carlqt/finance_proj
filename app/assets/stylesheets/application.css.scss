@@ -17,6 +17,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+    padding: 70px;
+}
+
 .id-num {
   width: 20%;
 }

@@ -1,4 +1,5 @@
 class FormsController < ApplicationController
+
   def index
     @po = WithPo.new
     @without_po = WithoutPo.new
