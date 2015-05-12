@@ -11,12 +11,14 @@
 #  updated_at :datetime         not null
 #
 
-require 'rails_helper'
-
-RSpec.describe WithPo do
-  describe "form" do
-    it "returns" do
-      po = create(:po_form)
-    end
+FactoryGirl.define do
+  factory :po_form, class: WithPo do
+    engineer  "Bruce Wayne"
+    sequence(:po) {|n| "po #{n}"}
+    sequence(:jo) {|n| "jo #{n}"}
+    sequence(:page) {|n| "page #{n}"}
+    total_amount 20
   end
+
+
 end
