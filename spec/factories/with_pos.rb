@@ -18,6 +18,7 @@ FactoryGirl.define do
     sequence(:jo) {|n| "jo #{n}"}
     sequence(:page) {|n| "page #{n}"}
     total_amount 20
+    letter_code 'a'
   end
 
 

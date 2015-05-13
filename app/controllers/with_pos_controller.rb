@@ -1,6 +1,6 @@
 class WithPosController < ApplicationController
   def new
-    @po = WithPo.new(requestor: current_user.email)
+    @po = WithPo.new(letter_code: 'a')
   end
 
   def create

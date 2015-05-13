@@ -22,6 +22,7 @@
 FactoryGirl.define do
   factory :form do
     requestor "Clark Kent"
+    letter_code 'a'
   end
 
 end

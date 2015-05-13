@@ -1,4 +1,9 @@
+- binding.pry
 = form_for @po, url: with_po_path, html: {class: "form-horizontal", id: "form-input"} do |f|
+  .form-group
+    = f.label :letter_code, class: "col-sm-2"
+    .col-sm-10
+      = @po.letter_code
   .form-group
     = f.label :requestor, class: "col-sm-2"
     .col-sm-10
