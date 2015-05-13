@@ -3,7 +3,7 @@
 # Table name: forms
 #
 #  id            :integer          not null, primary key
-#  letter_code   :integer
+#  letter_code   :string
 #  requestor     :string
 #  secretary     :string
 #  payment_type  :string
@@ -21,4 +21,6 @@
 
 class Form < ActiveRecord::Base
   actable
+  has_many :items
+  accepts_nested_attributes_for :items
 end

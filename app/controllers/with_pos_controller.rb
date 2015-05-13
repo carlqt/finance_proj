@@ -1,11 +1,12 @@
 class WithPosController < ApplicationController
   def new
     @po = WithPo.new(letter_code: 'a')
+    @items = @po.items.new
+    # 4.times { @po.items.new }
   end
 
   def create
     @form = WithPo.new form_params
-
     return redirect_to(root_path) if @form.save
     render :new
   end

@@ -3,7 +3,7 @@
 # Table name: forms
 #
 #  id            :integer          not null, primary key
-#  letter_code   :integer
+#  letter_code   :string
 #  requestor     :string
 #  secretary     :string
 #  payment_type  :string

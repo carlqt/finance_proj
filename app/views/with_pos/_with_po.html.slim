@@ -1,4 +1,3 @@
-- binding.pry
 = form_for @po, url: with_po_path, html: {class: "form-horizontal", id: "form-input"} do |f|
   .form-group
     = f.label :letter_code, class: "col-sm-2"
@@ -36,7 +35,14 @@
     = f.label :total_amount, class: "col-sm-2"
     .col-sm-10
       = f.text_field :total_amount
+  h2 Items
+  = f.fields_for :items do |ff|
+    = ff.text_field :name, placeholder: 'name'
+    = ff.text_field :description, placeholder: 'description'
+    = ff.number_field :quantity, placeholder: 'quantity'
 
+  br
+  br
   .btn-group.btn-group-lg role="group" aria-label="Large button group"
     = f.submit "Submit", class: "btn btn-primary", name: 'submit'
     = f.submit "Save", name: :save, class: "btn btn-primary"
