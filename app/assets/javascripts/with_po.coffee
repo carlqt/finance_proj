@@ -3,7 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
-  $('#link_to_remove').on 'click', (event) ->
+  $('#form-input').on 'click', '#link_to_remove', (event) ->
     $(this).prev("input[type=hidden]").val("1")
     $(this).closest(".fields").hide()
+    event.preventDefault()
+
+  $('#form-input').on 'click', '.add_fields', (event) ->
+    time = new Date().getTime()
+    regexp = new RegExp($(this).data('id'), 'g')
+    $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
