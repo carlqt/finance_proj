@@ -37,12 +37,8 @@
       = f.text_field :total_amount
   h2 Items
   = f.fields_for :items do |ff|
-    = ff.text_field :name, placeholder: 'name'
-    = ff.text_field :description, placeholder: 'description'
-    = ff.number_field :quantity, placeholder: 'quantity'
+    = render 'items', f: ff
 
-  br
-  br
   .btn-group.btn-group-lg role="group" aria-label="Large button group"
     = f.submit "Submit", class: "btn btn-primary", name: 'submit'
     = f.submit "Save", name: :save, class: "btn btn-primary"
