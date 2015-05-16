@@ -1,8 +1,8 @@
 = form_for @without_po, url: without_po_path, html: {class: "form-horizontal", id: "form-input"} do |f|
   .form-group
-    = f.label :transaction_id, "Transaction Number", class: "col-sm-2"
+    = f.label :transaction_number, "Transaction Number", class: "col-sm-2"
     .col-sm-10
-      = f.number_field :transaction_id, class: "form-control id-num"
+      = f.number_field :transaction_number, class: "form-control id-num"
   .form-group
     = f.label :requestor, class: "col-sm-2"
     .col-sm-10
@@ -19,7 +19,7 @@
     = f.label :payment_type, class: "col-sm-2"
     .col-sm-10
       = f.select :payment_type, %w(Check Cash)
-      
+
   h2 Items
   = f.fields_for :items do |ff|
     = render 'items', f: ff

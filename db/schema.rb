@@ -76,9 +76,9 @@ ActiveRecord::Schema.define(version: 20150513103747) do
   end
 
   create_table "without_pos", force: :cascade do |t|
-    t.integer  "transaction_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "transaction_number"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
 end
