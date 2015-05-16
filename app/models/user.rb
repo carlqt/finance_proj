@@ -22,4 +22,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  TYPE = %w(Admin Secretary)
+
+  validates :type, presence: true
+  validates :email, uniqueness: true
 end

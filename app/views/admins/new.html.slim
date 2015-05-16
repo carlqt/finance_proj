@@ -1,0 +1,16 @@
+= form_for @user, url: admins_path, html: {class: "form-horizontal", id: "form-input"} do |f|
+  .form-group
+    = f.label :email, class: "col-sm-2"
+    .col-sm-10
+      = f.text_field :email, class: "form-control id-num"
+  .form-group
+    = f.label :password, class: "col-sm-2"
+    .col-sm-10
+      = f.text_field :password, class: "form-control"
+  .form-group
+    = f.label :role, class: "col-sm-2"
+    .col-sm-10
+      = f.select :type, options_for_select(User::TYPE), {}, class: "form-control"
+
+  .btn-group.btn-group-lg role="group" aria-label="Large button group"
+    = f.submit "Create", name: :save, class: "btn btn-primary"
