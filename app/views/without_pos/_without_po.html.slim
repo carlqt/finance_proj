@@ -19,6 +19,12 @@
     = f.label :payment_type, class: "col-sm-2"
     .col-sm-10
       = f.select :payment_type, %w(Check Cash)
+      
+  h2 Items
+  = f.fields_for :items do |ff|
+    = render 'items', f: ff
+
+  = link_to_add_fields "add items", f, :items
   .form-group
     = f.label :total_amount, class: "col-sm-2"
     .col-sm-10
