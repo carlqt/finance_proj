@@ -26,5 +26,5 @@ class User < ActiveRecord::Base
   TYPE = %w(Admin Secretary)
 
   validates :type, presence: true
-  validates :email, uniqueness: true
+  validates :username, uniqueness: true
 end
