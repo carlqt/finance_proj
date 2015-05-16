@@ -9,4 +9,5 @@
 #
 
 class WithoutPo < ActiveRecord::Base
+  acts_as :form
 end

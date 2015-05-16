@@ -13,6 +13,13 @@
 
 require 'rails_helper'
 
-RSpec.describe WithPo, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe WithPo do
+  describe "letter code attribute" do
+    let!(:form) { create(:po_form) }
+
+    it "letter code increments on every submit" do
+      new_form = create(:po_form)
+      expect(new_form.letter_code).to eq 'b'
+    end
+  end
 end

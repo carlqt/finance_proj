@@ -1,9 +1,12 @@
 class FormsController < ApplicationController
+
   def index
+    @po = WithPo.new
+    @without_po = WithoutPo.new
   end
 
-  def create
-    binding.pry
-    "yeah"
+  private
+  def forms_params
+
   end
 end
