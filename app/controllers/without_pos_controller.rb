@@ -5,6 +5,7 @@ class WithoutPosController < ApplicationController
 
   def create
     @form = WithoutPo.new form_params
+    @form.status = 'submitted' if params[:commit] == "submit"
     return redirect_to(root_path) if @form.save
     render :new
   end

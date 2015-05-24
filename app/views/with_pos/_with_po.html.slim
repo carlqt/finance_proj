@@ -26,21 +26,25 @@
   .form-group
     = f.label :jo, 'Jo#', class: "col-sm-2"
     .col-sm-10
-      = f.number_field :jo
+      = f.number_field :jo, class: "form-control"
   .form-group
     = f.label :page, 'Page #', class: "col-sm-2"
     .col-sm-10
-      = f.number_field :page
+      = f.number_field :page, class: "form-control"
+  - if params[:action] == 'edit'
+  .form-group
+    = f.label :status, class: "col-sm-2"
+    .col-sm-10
+      = @po.status
   .form-group
     = f.label :total_amount, class: "col-sm-2"
     .col-sm-10
-      = f.text_field :total_amount
+      = f.text_field :total_amount, class: "form-control"
   h2 Items
   = f.fields_for :items do |ff|
     = render 'items', f: ff
 
   = link_to_add_fields "add items", f, :items
-
   .btn-group.btn-group-lg role="group" aria-label="Large button group"
     = f.submit "Submit", class: "btn btn-primary", name: 'submit'
     = f.submit "Save", name: :save, class: "btn btn-primary"

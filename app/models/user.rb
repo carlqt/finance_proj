@@ -27,4 +27,8 @@ class User < ActiveRecord::Base
 
   validates :type, presence: true
   validates :username, uniqueness: true
+
+  def role?
+    type
+  end
 end

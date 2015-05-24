@@ -1,6 +1,33 @@
-.row
-  .form-selection
-    .col-md-6
-      = link_to "PO Form", new_with_po_path, class: "btn btn-primary center-block"
-    .col-md-6
-      = link_to "Form without PO", new_without_po_path, class: "btn btn-primary center-block"
+table class='table'
+  h2 WithPo
+  thead
+    tr
+      th Letter Code
+      th Requestor
+      th Company Name
+      th Supplier
+      th Engineer
+      th Requestor
+      th Payment Type
+      th Total Amount
+      th Status
+      th Action
+  tbody
+    = render partial: "form_with_po", collection: @form_with_pos
+
+table class='table'
+  h2 With Out Po
+  thead
+    tr
+      th Letter Code
+      th Requestor
+      th Company Name
+      th Supplier
+      th Transaction Number
+      th Requestor
+      th Payment Type
+      th Total Amount
+      th Status
+      th Action
+  tbody
+    = render partial: "form_without_po", collection: @form_without_pos

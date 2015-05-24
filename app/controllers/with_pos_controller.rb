@@ -5,8 +5,13 @@ class WithPosController < ApplicationController
 
   def create
     @form = WithPo.new form_params
+    @form.status = 'submitted' if params[:commit] == "submit"
     return redirect_to(root_path) if @form.save
     render :new
+  end
+
+  def edit
+    @po = WithPo.find(params[:id])
   end
 
   private

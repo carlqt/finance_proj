@@ -1,8 +1,12 @@
 class FormsController < ApplicationController
 
   def index
-    @po = WithPo.new
-    @without_po = WithoutPo.new
+    @form_without_pos = WithoutPo.all
+    @form_with_pos = WithPo.all
+  end
+
+  def select
+
   end
 
   private
