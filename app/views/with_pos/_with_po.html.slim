@@ -1,8 +1,4 @@
-= form_for @po, url: with_po_path, html: {class: "form-horizontal", id: "form-input"} do |f|
-  .form-group
-    = f.label :letter_code, class: "col-sm-2"
-    .col-sm-10
-      = @po.letter_code
+= form_for @po, url: with_pos_path, html: {class: "form-horizontal", id: "form-input"} do |f|
   .form-group
     = f.label :requestor, class: "col-sm-2"
     .col-sm-10
@@ -32,19 +28,23 @@
     .col-sm-10
       = f.number_field :page, class: "form-control"
   - if params[:action] == 'edit'
-  .form-group
-    = f.label :status, class: "col-sm-2"
-    .col-sm-10
-      = @po.status
+    .form-group
+      = f.label :status, class: "col-sm-2"
+      .col-sm-10
+        = @po.status
   .form-group
     = f.label :total_amount, class: "col-sm-2"
     .col-sm-10
       = f.text_field :total_amount, class: "form-control"
-  h2 Items
-  = f.fields_for :items do |ff|
-    = render 'items', f: ff
 
-  = link_to_add_fields "add items", f, :items
-  .btn-group.btn-group-lg role="group" aria-label="Large button group"
-    = f.submit "Submit", class: "btn btn-primary", name: 'submit'
-    = f.submit "Save", name: :save, class: "btn btn-primary"
+  .form-group
+    h2 Items
+    = f.fields_for :items do |ff|
+      = render 'shared/items', f: ff
+    = link_to_add_fields "add items", f, :items
+
+  .form-group
+    .btn-group.btn-group-lg role="group" aria-label="Large button group"
+      = link_to "Cancel", forms_select_path, class: "btn btn-primary"
+      = f.submit "Submit", class: "btn btn-primary", name: 'submit'
+      = f.submit "Save", name: :save, class: "btn btn-primary"

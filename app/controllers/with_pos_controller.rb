@@ -1,11 +1,11 @@
 class WithPosController < ApplicationController
   def new
-    @po = WithPo.new(letter_code: 'a')
+    @po = WithPo.new
   end
 
   def create
     @form = WithPo.new form_params
-    @form.status = 'submitted' if params[:commit] == "submit"
+    @form.status = 'submitted' if params[:submit]
     return redirect_to(root_path) if @form.save
     render :new
   end
