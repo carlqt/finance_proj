@@ -22,5 +22,24 @@
 require 'rails_helper'
 
 RSpec.describe Form, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe ".generate_letter_code" do
+    let!(:form_2) { create :po_form }
+
+    context "when form is created the next day" do
+      let!(:yesterday_form) { create :form, :created_at => Time.current - 24.hour }
+      let!(:form) { create :po_form }
+
+      it "resets to 1" do
+        expect(form.letter_code).to eq "1"
+      end
+    end
+
+    context "when form is created on the same day" do
+      let!(:form) { create :po_form}
+
+      it "increments sequentially" do
+        expect(form.letter_code).to eq "2"
+      end
+    end
+  end
 end

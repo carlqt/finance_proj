@@ -14,11 +14,11 @@
 FactoryGirl.define do
   factory :po_form, class: WithPo do
     engineer  "Bruce Wayne"
-    sequence(:po) {|n| "po #{n}"}
-    sequence(:jo) {|n| "jo #{n}"}
-    sequence(:page) {|n| "page #{n}"}
+    sequence(:po) {|n| n }
+    sequence(:jo) {|n| n }
+    sequence(:page) {|n| n}
     total_amount 20
-    letter_code 'a'
+    form
   end
 
 

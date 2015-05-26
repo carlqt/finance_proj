@@ -22,7 +22,7 @@
 FactoryGirl.define do
   factory :form do
     requestor "Clark Kent"
-    letter_code 'a'
+    sequence(:letter_code) { |n| n }
   end
 
 end
