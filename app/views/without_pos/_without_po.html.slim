@@ -33,7 +33,8 @@
     .col-sm-10
       = f.text_field :total_amount
 
-  .btn-group.btn-group-lg role="group" aria-label="Large button group"
-    = link_to "Cancel", forms_select_path, class: "btn btn-primary"
-    = f.submit "Submit", class: "btn btn-primary", name: 'submit'
-    = f.submit "Save", name: :save, class: "btn btn-primary"
+  - unless current_user.role == 'Secretary' && params[:action] == 'edit'
+    .btn-group.btn-group-lg role="group" aria-label="Large button group"
+      = link_to "Cancel", forms_select_path, class: "btn btn-primary"
+      = f.submit "Submit", class: "btn btn-primary", name: 'submit'
+      = f.submit "Save", name: :save, class: "btn btn-primary"

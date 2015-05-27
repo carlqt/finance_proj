@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
     user ||= User.new
 
-    if user.role? == 'Admin'
+    if user.role == 'Admin'
       can :manage, :all
     end
     # Define abilities for the passed in user here. For example:
