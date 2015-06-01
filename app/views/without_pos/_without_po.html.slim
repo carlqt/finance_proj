@@ -18,7 +18,7 @@
   .form-group
     = f.label :payment_type, class: "col-sm-2"
     .col-sm-10
-      = f.select :payment_type, %w(Check Cash)
+      = f.select :payment_type, %w(Check Cash), {},class: "form-control"
 
   .form-group
     .col-sm-12
