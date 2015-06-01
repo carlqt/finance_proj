@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150516231311) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "forms", force: :cascade do |t|
     t.string   "letter_code"
     t.string   "requestor"
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150516231311) do
     t.string   "status",        default: "pending"
   end
 
-  add_index "forms", ["actable_id"], name: "index_forms_on_actable_id"
+  add_index "forms", ["actable_id"], name: "index_forms_on_actable_id", using: :btree
 
   create_table "items", force: :cascade do |t|
     t.text     "description"
@@ -66,8 +69,8 @@ ActiveRecord::Schema.define(version: 20150516231311) do
     t.string   "username"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "with_pos", force: :cascade do |t|
     t.string   "engineer"

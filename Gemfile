@@ -32,6 +32,7 @@ gem 'devise'
 gem 'workflow'
 gem 'active_record-acts_as'
 gem 'cancancan'
+gem 'pg'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
