@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   get '/forms/select' => "forms#select", as: :forms_select
   resources :forms, only: [:index]
-  resources :with_pos, only: [:create, :new, :edit, :show]
-  resources :without_pos, only: [:create, :new, :edit, :show]
+  resources :with_pos, only: [:create, :new, :edit, :show, :update]
+  resources :without_pos, only: [:create, :new, :edit, :show, :update]
   resources :admins, only: [:new, :create]
   root 'forms#select'
   # The priority is based upon order of creation: first created -> highest priority.

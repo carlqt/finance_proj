@@ -8,4 +8,4 @@
 	- if current_user.role == 'Admin'
 	.btn-group.btn-group-lg role="group" aria-label="Large button group"
 	  = link_to "Cancel", forms_select_path, class: "btn btn-primary"
-	  = f.submit("Approve", class: "btn btn-primary", name: 'approve') if params[:action] == 'edit' && current_user.role == 'Admin'
+	  = f.submit("Approve", class: "btn btn-primary", name: 'approve') 
