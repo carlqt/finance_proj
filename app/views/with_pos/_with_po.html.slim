@@ -44,7 +44,4 @@
     = link_to_add_fields "add items", f, :items
 
   .form-group
-    .btn-group.btn-group-lg role="group" aria-label="Large button group"
-      = link_to "Cancel", forms_select_path, class: "btn btn-primary"
-      = f.submit "Submit", class: "btn btn-primary", name: 'submit'
-      = f.submit "Save", name: :save, class: "btn btn-primary"
+    = render "shared/buttons", f: f
