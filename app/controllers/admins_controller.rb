@@ -4,6 +4,7 @@ class AdminsController < ApplicationController
   end
 
   def create
+    binding.pry
     @user = User.new safe_params
     @user.password_confirmation = @user.password
 
@@ -16,6 +17,6 @@ class AdminsController < ApplicationController
 
   private
   def safe_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :type)
+    params.require(:user).permit(:username, :password, :password_confirmation, :type)
   end
 end

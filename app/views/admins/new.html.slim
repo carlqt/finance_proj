@@ -1,8 +1,8 @@
 = form_for @user, url: admins_path, html: {class: "form-horizontal", id: "form-input"} do |f|
   .form-group
-    = f.label :email, class: "col-sm-2"
+    = f.label :username, class: "col-sm-2"
     .col-sm-10
-      = f.text_field :email, class: "form-control id-num"
+      = f.text_field :username, class: "form-control id-num"
   .form-group
     = f.label :password, class: "col-sm-2"
     .col-sm-10
