@@ -12,7 +12,7 @@ class WithPosController < ApplicationController
 
   def update
     @form = WithPo.find params[:id]
-    @form.status = 'approved' if params[:approved]
+    @form.status = 'approved' if params[:approve]
     return redirect_to(root_path) if @form.save
     render :edit
   end
