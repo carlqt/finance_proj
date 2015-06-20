@@ -1,0 +1,16 @@
+table class='table'
+  h2 WithPo
+  thead
+    tr
+      th Letter Code
+      th Requestor
+      th Company Name
+      th Supplier
+      th Engineer
+      th Requestor
+      th Payment Type
+      th Total Amount
+      th Status
+      th Action
+  tbody
+    = render partial: "form_with_po", collection: form_with_pos

@@ -9,4 +9,12 @@ module ApplicationHelper
 
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
+
+  def displayed_column_names(object)
+    if object.is_a? WithPo
+      ["Letter Code", "Requestor","Company Name","Supplier","Engineer","Requestor","Payment Type","Total Amount","Status","Action"]
+    elsif object.is_a? WithoutPo
+      ["Letter Code", "Requestor","Company Name","Supplier","Transaction Number","Requestor","Payment Type","Total Amount","Status","Action"]
+    end
+  end
 end

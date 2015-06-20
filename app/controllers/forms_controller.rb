@@ -1,16 +1,9 @@
 class FormsController < ApplicationController
-
   def index
-    @form_without_pos = WithoutPo.all
-    @form_with_pos = WithPo.all
-  end
-
-  def select
-
-  end
-
-  private
-  def forms_params
-
+    if params[:without_po]
+      @form = WithoutPo.all
+    else
+      @form = WithPo.all
+    end
   end
 end
