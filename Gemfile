@@ -34,6 +34,7 @@ gem 'cancancan'
 gem 'pg'
 gem 'rails_12factor'
 gem 'slim-rails'
+gem 'has_scope'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
