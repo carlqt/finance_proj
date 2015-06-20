@@ -9,5 +9,6 @@
 #
 
 class WithoutPo < ActiveRecord::Base
+  include FormMethods
   acts_as :form
 end

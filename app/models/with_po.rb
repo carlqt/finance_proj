@@ -12,5 +12,6 @@
 #
 
 class WithPo < ActiveRecord::Base
+  include FormMethods
   acts_as :form
 end

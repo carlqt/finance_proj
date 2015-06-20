@@ -4,7 +4,10 @@ ul.nav.nav-tabs
   li role='presentation' class=('active' if params[:without_po])
     = link_to "Without PO", forms_path(without_po: true)
 
-
+.filter-container.btn-group
+  = filter_pills "Approved", @approved_count
+  = filter_pills "Pending", @pending_count
+  = filter_pills "Submitted", @submitted_count
 - if params[:without_po]
   = render "table_without_po", form_without_pos: @form
 - else
