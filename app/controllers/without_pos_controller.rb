@@ -1,4 +1,10 @@
 class WithoutPosController < ApplicationController
+  include FormsMethodController
+
+  def index
+    @form = WithoutPo.all.status params[:status]
+  end
+
   def new
     @without_po = WithoutPo.new
   end

@@ -1,0 +1,12 @@
+ul.nav.nav-tabs
+  li role='presentation' class='active'
+    = link_to "With PO", with_pos_path
+  li role='presentation'
+    = link_to "Without PO", without_pos_path
+
+.filter-container.btn-group
+  = filter_pills "Approved", @approved_count
+  = filter_pills "Pending", @pending_count
+  = filter_pills "Submitted", @submitted_count
+
+= render "forms/table_with_po", form_with_pos: @form

@@ -1,4 +1,10 @@
 class WithPosController < ApplicationController
+  include FormsMethodController
+
+  def index
+    @form = WithPo.all.status(params[:status])
+  end
+
   def new
     @po = WithPo.new
   end
