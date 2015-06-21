@@ -11,6 +11,7 @@ class WithoutPosController < ApplicationController
 
   def show
     @form = WithoutPo.find params[:id]
+    @item = @form.items
   end
 
   def create
@@ -25,10 +26,16 @@ class WithoutPosController < ApplicationController
     @without_po = WithoutPo.find params[:id]
   end
 
+  def update
+    @without_po = WithoutPo.find params[:id]
+    return redirect_to(root_path) if @without_po.update_attributes(form_params)
+    render :edit
+  end
+
   private
   def form_params
     params.require(:without_po).permit(:requestor, :company_name, :secretary, :transaction_number,
                                     :letter_code, :requestor, :payment_type, :total_amount,
-                                    :supplier, :title, :name_of_check, :cv_number, items_attributes: [:name, :description, :quantity, :_destroy])
+                                    :supplier, :title, :name_of_check, :cv_number, items_attributes: [:name, :description, :quantity, :_destroy, :id])
   end
 end

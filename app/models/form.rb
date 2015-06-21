@@ -23,7 +23,7 @@
 class Form < ActiveRecord::Base
   actable
   has_many :items
-  accepts_nested_attributes_for :items
+  accepts_nested_attributes_for :items, allow_destroy: true
 
   before_create :generate_letter_code
 
