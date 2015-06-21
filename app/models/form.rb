@@ -27,7 +27,7 @@ class Form < ActiveRecord::Base
 
   before_create :generate_letter_code
 
-  validates :payment_type, inclusion: { in: %w(check cash) }
+  validates :payment_type, inclusion: { in: %w(Check Cash) }
 
   private
   def generate_letter_code

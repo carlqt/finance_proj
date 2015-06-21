@@ -1,0 +1,17 @@
+h1
+  Form without PO
+
+.from-wrapper
+  - %w(transaction_number requestor company_name secretary payment_type).each do |title|
+    .row
+      = label_tag title.titleize, nil, class: "col-sm-2"
+      .col-sm-10
+        = @form.send(title)
+
+  .row
+    .col-sm-12
+      .items-container
+        h2 Items
+        
+
+

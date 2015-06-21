@@ -9,11 +9,15 @@ class WithoutPosController < ApplicationController
     @without_po = WithoutPo.new
   end
 
+  def show
+    @form = WithoutPo.find params[:id]
+  end
+
   def create
-    @form = WithoutPo.new form_params
-    @form.status = 'submitted' if params[:submit]
-    @form.status = 'approved' if params[:approved]
-    return redirect_to(root_path) if @form.save
+    @without_po = WithoutPo.new form_params
+    @without_po.status = 'submitted' if params[:submit]
+    @without_po.status = 'approved' if params[:approved]
+    return redirect_to(root_path) if @without_po.save
     render :new
   end
 
