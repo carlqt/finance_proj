@@ -16,9 +16,17 @@
     .col-sm-10
       = f.text_field :secretary, class: "form-control"
   .form-group
+    = f.label :supplier, class: "col-sm-2"
+    .col-sm-10
+      = f.text_field :supplier, class: "form-control"
+  .form-group
     = f.label :payment_type, class: "col-sm-2"
     .col-sm-10
       = f.select :payment_type, %w(Check Cash), {},class: "form-control"
+  .form-group
+    = f.label :total_amount, class: "col-sm-2"
+    .col-sm-10
+      = f.text_field :total_amount, class: "form-control"
 
   .form-group
     .col-sm-12
@@ -28,9 +36,5 @@
           = render 'shared/items', f: ff
         = link_to_add_fields "add items", f, :items
 
-  .form-group
-    = f.label :total_amount, class: "col-sm-2"
-    .col-sm-10
-      = f.text_field :total_amount
 
     = render "shared/buttons", f: f

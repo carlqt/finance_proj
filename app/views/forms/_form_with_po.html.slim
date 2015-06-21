@@ -9,4 +9,11 @@ tr
   td= form_with_po.payment_type
   td= form_with_po.total_amount
   td= form_with_po.status
-  td= link_to "View", edit_with_po_path(form_with_po), class: "btn btn-primary"
+  td
+    .btn-group.action-group role='group'
+      button.btn.btn-primary.dropdown-toggle data-toggle="dropdown" type="button" aria-expanded="false" aria-haspopup="true"
+        |  Action 
+        span.caret
+      ul.dropdown-menu
+        li= link_to "Edit", edit_with_po_path(form_with_po)
+        li= link_to "View", with_po_path(form_with_po)

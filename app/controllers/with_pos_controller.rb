@@ -9,16 +9,20 @@ class WithPosController < ApplicationController
     @po = WithPo.new
   end
 
+  def show
+    @po = WithPo.find params[:id]
+  end
+
   def create
-    @form = WithPo.new form_params
-    @form.status = 'submitted' if params[:submit]
-    return redirect_to(root_path) if @form.save
+    @po = WithPo.new form_params
+    @po.status = 'submitted' if params[:submit]
+    return redirect_to(root_path, success: "Form created") if @po.save
     render :new
   end
 
   def update
-    @form = WithPo.find params[:id]
-    @form.status = 'approved' if params[:approve]
+    @po = WithPo.find params[:id]
+    @po.status = 'approved' if params[:approve]
     return redirect_to(root_path) if @form.update_attributes(form_params)
     render :edit
   end

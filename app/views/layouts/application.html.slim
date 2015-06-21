@@ -8,5 +8,8 @@ html
   body
     = render 'layouts/navbar'
     .container
+      = flash_messages
+
+    .container
       = yield
     = javascript_include_tag 'application'

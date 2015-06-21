@@ -11,14 +11,14 @@ class WithoutPosController < ApplicationController
 
   def show
     @form = WithoutPo.find params[:id]
-    @item = @form.items
+    @items = @form.items
   end
 
   def create
     @without_po = WithoutPo.new form_params
     @without_po.status = 'submitted' if params[:submit]
     @without_po.status = 'approved' if params[:approved]
-    return redirect_to(root_path) if @without_po.save
+    return redirect_to(root_path, success: "Form created") if @without_po.save
     render :new
   end
 

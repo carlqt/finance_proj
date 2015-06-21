@@ -1,12 +1,12 @@
 h1
-  Form without PO
+  Form with PO
 
 .from-wrapper
-  - %w(transaction_number requestor company_name secretary supplier payment_type).each do |title|
+  - %w(letter_code requestor company_name secretary supplier engineer jo po page payment_type total_amount title name_of_check cv_number).each do |title|
     .row
       = label_tag title.titleize, nil, class: "col-sm-2"
       .col-sm-10
-        = @form.send(title)
+        = @po.send(title)
 
   - if @items.present?
       h2 Items
