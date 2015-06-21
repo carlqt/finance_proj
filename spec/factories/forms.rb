@@ -17,6 +17,7 @@
 #  title         :string
 #  name_of_check :string
 #  cv_number     :integer
+#  status        :string           default("pending")
 #
 
 FactoryGirl.define do

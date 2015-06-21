@@ -17,6 +17,7 @@
 #  title         :string
 #  name_of_check :string
 #  cv_number     :integer
+#  status        :string           default("pending")
 #
 
 class Form < ActiveRecord::Base
@@ -25,6 +26,8 @@ class Form < ActiveRecord::Base
   accepts_nested_attributes_for :items
 
   before_create :generate_letter_code
+
+  validates :payment_type, inclusion: { in: %w(check cash) }
 
   private
   def generate_letter_code

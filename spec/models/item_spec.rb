@@ -6,6 +6,7 @@
 #  description :text
 #  quantity    :integer
 #  form_id     :integer
+#  name        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
