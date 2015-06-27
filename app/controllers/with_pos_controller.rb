@@ -1,5 +1,6 @@
 class WithPosController < ApplicationController
   include FormsMethodController
+  before_action :initialize_po, except: [:index, :new, :create]
 
   def index
     @form = WithPo.all.status(params[:status])
@@ -10,7 +11,6 @@ class WithPosController < ApplicationController
   end
 
   def show
-    @po = WithPo.find params[:id]
   end
 
   def create
@@ -21,17 +21,34 @@ class WithPosController < ApplicationController
   end
 
   def update
-    @po = WithPo.find params[:id]
     @po.status = 'approved' if params[:approve]
     return redirect_to(root_path) if @form.update_attributes(form_params)
     render :edit
   end
 
   def edit
-    @po = WithPo.find(params[:id])
+  end
+
+  def reject
+    @po.reject!
+    redirect_to :back, success: "Form has been rejected"
+  end
+
+  def approve
+    @po.approve!
+    redirect_to :back, success: "Form has been approved"
+  end
+
+  def submit
+    @po.submit!
+    redirect_to :back, success: "Form has been submitted"
   end
 
   private
+  def initialize_po
+    @po = WithPo.find params[:id]
+  end
+
   def form_params
     params.require(:with_po).permit(:requestor, :company_name, :secretary, :engineer, :jo, :po,
                                     :page, :letter_code, :requestor, :payment_type, :total_amount,

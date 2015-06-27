@@ -1,0 +1,4 @@
+.btn-group.btn-group-lg role="group" aria-label="Large button group"
+  = link_to "Cancel", self.send("#{controller_name}_path"), class: "btn btn-primary"
+  = link_to "Approve", self.send("#{controller_name.singularize}_path", po_form), class: "btn btn-primary", method: :post
+  = link_to "Reject", self.send("#{controller_name.singularize}_path", po_form), class: "btn btn-primary", method: :post if po_form.can_reject?
