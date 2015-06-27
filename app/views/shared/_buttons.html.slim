@@ -1,11 +1,4 @@
-- if params[:action] == 'new'
-  .btn-group.btn-group-lg role="group" aria-label="Large button group"
-    = link_to "Cancel", self.send("#{controller_name}_path"), class: "btn btn-primary"
-    = f.submit "Submit", class: "btn btn-primary", name: 'submit'
-    = f.submit "Save", name: :save, class: "btn btn-primary"
-
-- if params[:action] == 'edit'
-	- if current_user.role == 'Admin'
-	.btn-group.btn-group-lg role="group" aria-label="Large button group"
-	  = link_to "Cancel", self.send("#{controller_name}_path"), class: "btn btn-primary"
-	  = f.submit("Approve", class: "btn btn-primary", name: 'approve') 
+.btn-group.btn-group-lg role="group" aria-label="Large button group"
+  = link_to "Cancel", self.send("#{controller_name}_path"), class: "btn btn-primary"
+  = f.submit "Submit", class: "btn btn-primary", name: 'submit'
+  = f.submit "Save", name: :save, class: "btn btn-primary"

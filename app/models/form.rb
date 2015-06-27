@@ -42,6 +42,11 @@ class Form < ActiveRecord::Base
       event :reject, transitions_to: :rejected
     end
 
+    state :rejected do
+      event :submit, transitions_to: :submitted
+      event :save, transitions_to: :pending
+    end
+
     state :approved
   end
 
