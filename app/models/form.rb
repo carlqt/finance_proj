@@ -22,12 +22,28 @@
 
 class Form < ActiveRecord::Base
   actable
+  include Workflow
+
   has_many :items
   accepts_nested_attributes_for :items, allow_destroy: true
 
   before_create :generate_letter_code
 
   validates :payment_type, inclusion: { in: %w(Check Cash) }
+
+  workflow_column :status
+  workflow do
+    state :pending do 
+      event :submit, transitions_to: :submitted
+    end
+
+    state :submitted do
+      event :approve, transitions_to: :approved
+      event :reject, transitions_to: :rejected
+    end
+
+    state :approved
+  end
 
   private
   def generate_letter_code
