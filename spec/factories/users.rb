@@ -21,7 +21,12 @@
 
 FactoryGirl.define do
   factory :user do
-    email "love"
-  end
+    username Faker::Name.name
+    password 'password'
+    type "Admin"
 
+    trait :sec do
+      type "Secretary"
+    end
+  end
 end
