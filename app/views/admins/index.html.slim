@@ -1,0 +1,8 @@
+table class='table'
+  h2 Users
+  thead
+    tr
+      th Username
+      th Role
+  tbody
+    = render partial: "admin", collection: @users

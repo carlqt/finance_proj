@@ -18,6 +18,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :admins, only: [:new, :create]
+  resources :admins, only: [:index, :new, :create]
   root 'forms#select'
 end

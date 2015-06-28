@@ -17,6 +17,7 @@
               strong= current_user.username
               span.glyphicon.glyphicon-chevron-down
             ul.dropdown-menu
+              li= link_to "Admin Page", admins_path if current_user.role == "Admin"
               li= link_to "logout", destroy_user_session_path, method: :delete
           - else
             a.dropdown-toggle data-toggle="dropdown" href="#"
