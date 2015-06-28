@@ -20,16 +20,17 @@ class WithoutPosController < ApplicationController
     @without_po.status = 'submitted' if params[:submit]
     @without_po.status = 'approved' if params[:approved]
     return redirect_to(root_path, success: "Form created") if @without_po.save
+    flash.now[:alert] = "You have an error when creating the form"
     render :new
   end
 
   def edit
-    @without_po = WithoutPo.find params[:id]
   end
 
   def update
     @without_po = WithoutPo.find params[:id]
     return redirect_to(root_path) if @without_po.update_attributes(form_params)
+    flash.now[:alert] = "You have an error when updating the form"
     render :edit
   end
 

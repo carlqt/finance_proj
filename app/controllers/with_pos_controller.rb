@@ -25,6 +25,7 @@ class WithPosController < ApplicationController
   def update
     @po.status = 'approved' if params[:approve]
     return redirect_to(root_path) if @form.update_attributes(form_params)
+    flash.now[:alert] = "You have an error when updating the form"
     render :edit
   end
 
