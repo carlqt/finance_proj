@@ -10,6 +10,7 @@ feature "Form create" do
       fill_in 'with_po_requestor', with: "carl tablante"
       fill_in 'with_po_company_name', with: "Aureso"
       fill_in 'with_po_secretary', with: "Anne Rejaba"
+      fill_in 'with_po_supplier', with: "Headstrong"
       fill_in 'with_po_engineer', with: "Gerald Pasion"
       fill_in 'with_po_jo', with: 4
       fill_in 'with_po_page', with: 4
@@ -25,6 +26,7 @@ feature "Form create" do
       visit new_with_po_path
       fill_in 'with_po_requestor', with: "carl tablante"
       fill_in 'with_po_company_name', with: "Aureso"
+      fill_in 'with_po_supplier', with: "Headstrong"
       fill_in 'with_po_secretary', with: "Anne Rejaba"
       fill_in 'with_po_engineer', with: "Gerald Pasion"
       fill_in 'with_po_jo', with: 4
