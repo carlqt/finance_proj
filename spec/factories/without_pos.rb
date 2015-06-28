@@ -9,11 +9,15 @@
 #
 
 FactoryGirl.define do
-  factory :without_po_form, class: WithoutPo do
-    engineer  "Bruce Wayne"
-    sequence(:transaction_number) { |n| n } 
+  factory :without_po, class: WithoutPo do
+    requestor Faker::Name.name
+    secretary Faker::Name.name
+    payment_type %w(Cash Check).sample
+    company_name Faker::Company.name
+    supplier Faker::Company.name
+    sequence(:transaction_number) {|n| n }
     total_amount 20
-    form
+    status 'pending'
   end
 
 
