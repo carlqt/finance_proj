@@ -24,11 +24,15 @@ require 'rails_helper'
 
 RSpec.describe Form, :type => :model do
   describe ".generate_letter_code" do
-    let!(:form_2) { create :po_form }
+    let!(:form_2) { create :with_po }
 
     context "when form is created the next day" do
-      let!(:yesterday_form) { create :form, :created_at => Time.current - 24.hour }
-      let!(:form) { create :po_form }
+      before do
+        user_form = create :with_po
+        user_form.form.update_attribute :created_at, Time.current - 24.hour
+      end
+
+      let!(:form) { create :with_po }
 
       it "resets to 1" do
         expect(form.letter_code).to eq "1"
@@ -36,7 +40,7 @@ RSpec.describe Form, :type => :model do
     end
 
     context "when form is created on the same day" do
-      let!(:form) { create :po_form}
+      let!(:form) { create :with_po}
 
       it "increments sequentially" do
         expect(form.letter_code).to eq "2"

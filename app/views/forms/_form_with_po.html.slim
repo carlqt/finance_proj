@@ -18,7 +18,10 @@ tr
         li= link_to "Edit", edit_with_po_path(form_with_po) if current_user.role == "Secretary" && (form_with_po.rejected? || form_with_po.pending?)
         li= link_to "View", with_po_path(form_with_po)
         - if current_user.role == "Secretary"
-          li= link_to "Submit", with_po_submit_path(form_with_po), method: :patch if form_with_po.can_submit?
+          - if form_with_po.can_submit?
+            li= link_to "Submit", submit_with_po_path(form_with_po), method: :patch
         - if current_user.role == "Admin"
-          li= link_to "Approve", with_po_approve_path(form_with_po), method: :patch if form_with_po.can_approve?
-          li= link_to "Reject", with_po_reject_path(form_with_po), method: :patch if form_with_po.can_reject?
+          - if form_with_po.can_approve?
+            li= link_to "Approve", approve_with_po_path(form_with_po), method: :patch
+          - if form_with_po.can_reject?
+            li= link_to "Reject", reject_with_po_path(form_with_po), method: :patch

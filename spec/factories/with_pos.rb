@@ -12,14 +12,18 @@
 #
 
 FactoryGirl.define do
-  factory :po_form, class: WithPo do
-    engineer  "Bruce Wayne"
+  factory :with_po, class: WithPo do
+    engineer  Faker::Name.name
+    requestor Faker::Name.name
+    secretary Faker::Name.name
+    payment_type %w(Cash Check).sample
+    company_name Faker::Company.name
+    supplier Faker::Company.name
     sequence(:po) {|n| n }
     sequence(:jo) {|n| n }
     sequence(:page) {|n| n}
     total_amount 20
-    form
+    status 'pending'
   end
-
 
 end

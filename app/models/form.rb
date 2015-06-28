@@ -33,7 +33,7 @@ class Form < ActiveRecord::Base
 
   workflow_column :status
   workflow do
-    state :pending do 
+    state :pending do
       event :submit, transitions_to: :submitted
     end
 

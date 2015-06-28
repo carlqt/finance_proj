@@ -4,14 +4,18 @@ Rails.application.routes.draw do
   resources :forms, only: [:index]
 
   resources :with_pos do
-    patch :reject
-    patch :approve
-    patch :submit
+    member do
+      patch :reject
+      patch :approve
+      patch :submit
+    end
   end
   resources :without_pos do
-    patch :reject
-    patch :approve
-    patch :submit
+    member do
+      patch :reject
+      patch :approve
+      patch :submit
+    end
   end
 
   resources :admins, only: [:new, :create]
