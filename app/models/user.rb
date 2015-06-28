@@ -27,10 +27,17 @@ class User < ActiveRecord::Base
 
   TYPE = %w(Admin Secretary)
 
+  has_many :without_pos
+  has_many :with_pos
+
   validates :type, presence: true
   validates :username, uniqueness: true
 
   def email_required?
+    false
+  end
+  
+  def email_changed?
     false
   end
 

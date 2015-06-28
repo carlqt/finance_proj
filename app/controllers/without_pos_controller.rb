@@ -7,7 +7,7 @@ class WithoutPosController < ApplicationController
   end
 
   def new
-    @without_po = WithoutPo.new
+    @without_po = current_user.without_pos.new
   end
 
   def show
@@ -16,7 +16,7 @@ class WithoutPosController < ApplicationController
   end
 
   def create
-    @without_po = WithoutPo.new form_params
+    @without_po = current_user.without_pos.new form_params
     @without_po.status = 'submitted' if params[:submit]
     @without_po.status = 'approved' if params[:approved]
     return redirect_to(root_path, success: "Form created") if @without_po.save

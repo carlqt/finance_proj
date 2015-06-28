@@ -20,6 +20,7 @@ feature "Form create" do
       visit with_pos_path
       record = find('tbody tr').text
       expect(record).to have_content 'pending'
+      expect(user.with_pos.exists?).to be true
     end
 
     scenario "submits a form created" do
@@ -37,6 +38,7 @@ feature "Form create" do
       visit with_pos_path
       record = find('tbody tr').text
       expect(record).to have_content 'submitted'
+      expect(user.with_pos.exists?).to be true
     end
   end
 
@@ -54,6 +56,7 @@ feature "Form create" do
       visit without_pos_path
       record = find('tbody tr').text
       expect(record).to have_content 'pending'
+      expect(user.without_pos.exists?).to be true
     end
 
     scenario "submits a form created" do
@@ -69,6 +72,7 @@ feature "Form create" do
       visit without_pos_path
       record = find('tbody tr').text
       expect(record).to have_content 'submitted'
+      expect(user.without_pos.exists?).to be true
     end
   end
 end

@@ -12,4 +12,6 @@ class WithoutPo < ActiveRecord::Base
   include FormMethods
   acts_as :form
   validates :transaction_number, presence: true
+
+  belongs_to :user
 end

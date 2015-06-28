@@ -16,4 +16,6 @@ class WithPo < ActiveRecord::Base
   acts_as :form
 
   validates :engineer, presence: true
+
+  belongs_to :user
 end
