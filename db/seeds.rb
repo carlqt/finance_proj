@@ -17,10 +17,10 @@ end
 
 User.all.each do |user|
   5.times do
-    user.with_pos.create!(requestor: Faker::Name.name, secretary: Faker::Name.name, payment_type: %w(Cash Check).sample, company_name: Faker::Company.name, total_amount: Faker::Commerce.price.round(2), supplier: Faker::Company.name, engineer: Faker::Name.name)
+    user.with_pos.create!(requestor: Faker::Name.name, secretary: Faker::Name.name, payment_type: %w(Cash Check).sample, company_name: Faker::Company.name, total_amount: Faker::Commerce.price.to_d.round(2), supplier: Faker::Company.name, engineer: Faker::Name.name)
   end
 
   5.times do
-    user.without_pos.create!(requestor: Faker::Name.name, secretary: Faker::Name.name, payment_type: %w(Cash Check).sample, company_name: Faker::Company.name, total_amount: Faker::Commerce.price.round(2), supplier: Faker::Company.name, transaction_number: Faker::Number.number(5))
+    user.without_pos.create!(requestor: Faker::Name.name, secretary: Faker::Name.name, payment_type: %w(Cash Check).sample, company_name: Faker::Company.name, total_amount: Faker::Commerce.price.to_d.round(2), supplier: Faker::Company.name, transaction_number: Faker::Number.number(5))
   end
 end
