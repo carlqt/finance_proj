@@ -29,7 +29,7 @@ class WithoutPosController < ApplicationController
 
   def update
     @without_po = WithoutPo.find params[:id]
-    return redirect_to(root_path) if @without_po.update_attributes(form_params)
+    return redirect_to(without_pos_path, success: "Form has been updated") if @without_po.update_attributes(form_params)
     flash.now[:alert] = "You have an error when updating the form"
     render :edit
   end
