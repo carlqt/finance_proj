@@ -20,5 +20,5 @@
 #
 
 class Admin < User
-
+  validates :username, :password, presence: true
 end

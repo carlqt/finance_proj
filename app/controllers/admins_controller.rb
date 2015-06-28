@@ -8,8 +8,9 @@ class AdminsController < ApplicationController
     @user.password_confirmation = @user.password
 
     if @user.save
-      redirect_to root_path
+      redirect_to root_path, success: "New user created"
     else
+      flash.now[:alert] = "User creation failed"
       render :new
     end
   end
