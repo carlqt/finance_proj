@@ -12,3 +12,9 @@
 .form-selection {
   padding: 25px;
 }
+
+.field_with_errors input {
+  border: solid;
+  border-color: red;
+  border-width: 1px;
+}

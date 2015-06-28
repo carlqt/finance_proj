@@ -1,5 +1,6 @@
 class WithoutPosController < ApplicationController
   include FormsMethodController
+  before_action :initialize_po, except: [:index, :new, :create]
 
   def index
     @form = WithoutPo.all.status params[:status]
@@ -32,7 +33,26 @@ class WithoutPosController < ApplicationController
     render :edit
   end
 
+  def reject
+    @without_po.reject!
+    redirect_to :back, success: "Form has been rejected"
+  end
+
+  def approve
+    @without_po.approve!
+    redirect_to :back, success: "Form has been approved"
+  end
+
+  def submit
+    @without_po.submit!
+    redirect_to :back, success: "Form has been submitted"
+  end
+
   private
+  def initialize_po
+    @without_po = WithoutPo.find params[:id]
+  end
+
   def form_params
     params.require(:without_po).permit(:requestor, :company_name, :secretary, :transaction_number,
                                     :letter_code, :requestor, :payment_type, :total_amount,

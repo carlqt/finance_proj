@@ -30,6 +30,7 @@ class Form < ActiveRecord::Base
   before_create :generate_letter_code
 
   validates :payment_type, inclusion: { in: %w(Check Cash) }
+  validates :company_name, presence: true
 
   workflow_column :status
   workflow do

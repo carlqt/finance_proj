@@ -11,12 +11,14 @@ class WithPosController < ApplicationController
   end
 
   def show
+    @items = @po.items
   end
 
   def create
     @po = WithPo.new form_params
     @po.status = 'submitted' if params[:submit]
     return redirect_to(root_path, success: "Form created") if @po.save
+    flash.now[:alert] = "You have an error when creating the form"
     render :new
   end
 

@@ -11,9 +11,17 @@ tr
   td= form_without_po.status
   td
     .btn-group.action-group role='group'
-      button.btn.btn-primary.dropdown-toggle data-toggle="dropdown" type="button" aria-expanded="false" aria-haspopup="true"
-        |  Action 
-        span.caret
-      ul.dropdown-menu
-        li= link_to "Edit", edit_without_po_path(form_without_po)
-        li= link_to "View", without_po_path(form_without_po)
+        button.btn.btn-primary.dropdown-toggle data-toggle="dropdown" type="button" aria-expanded="false" aria-haspopup="true"
+          |  Action 
+          span.caret
+        ul.dropdown-menu
+          li= link_to "Edit", edit_without_po_path(form_without_po) if current_user.role == "Secretary" && (form_without_po.rejected? || form_without_po.pending?)
+          li= link_to "View", without_po_path(form_without_po)
+          - if current_user.role == "Secretary"
+            - if form_without_po.can_submit?
+              li= link_to "Submit", submit_without_po_path(form_without_po), method: :patch
+          - if current_user.role == "Admin"
+            - if form_without_po.can_approve?
+              li= link_to "Approve", approve_without_po_path(form_without_po), method: :patch
+            - if form_without_po.can_reject?
+              li= link_to "Reject", reject_without_po_path(form_without_po), method: :patch
