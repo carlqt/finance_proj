@@ -3,7 +3,7 @@ class WithPosController < ApplicationController
   before_action :initialize_po, except: [:index, :new, :create]
 
   def index
-    @form = WithPo.all.status(params[:status])
+    @form = WithPo.all.status(params[:status]).order(updated_at: :asc)
   end
 
   def new
