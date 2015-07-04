@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require jquery_smartmenu
+//= require jquery_smartmenu_bootstrap
 //= require_tree .

@@ -30,7 +30,6 @@ gem 'workflow'
 gem 'active_record-acts_as'
 gem 'cancancan'
 gem 'pg'
-gem 'rails_12factor'
 gem 'slim-rails'
 gem 'has_scope'
 
@@ -69,4 +68,8 @@ group :test do
   gem 'selenium-webdriver'
   gem 'poltergeist'
   gem 'nyan-cat-formatter'
+end
+
+group :production do
+  gem 'rails_12factor'
 end

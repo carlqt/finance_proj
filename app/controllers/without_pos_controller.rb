@@ -20,7 +20,7 @@ class WithoutPosController < ApplicationController
     @without_po.status = 'submitted' if params[:submit]
     @without_po.status = 'approved' if params[:approved]
     return redirect_to(root_path, success: "Form created") if @without_po.save
-    flash.now[:alert] = "You have an error when creating the form"
+    flash.now[:alert] = @without_po.errors.full_messages
     render :new
   end
 

@@ -31,6 +31,7 @@ class Form < ActiveRecord::Base
 
   validates :payment_type, inclusion: { in: %w(Check Cash) }
   validates :company_name, :requestor, :secretary, :supplier, :total_amount, presence: true
+  validate :has_item?
 
   workflow_column :status
   workflow do
@@ -70,5 +71,9 @@ class Form < ActiveRecord::Base
     else
       false
     end
+  end
+
+  def has_item?
+    errors[:base] << "At least 1 item should be included" if self.items.blank?
   end
 end

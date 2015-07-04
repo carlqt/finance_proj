@@ -18,7 +18,7 @@ class WithPosController < ApplicationController
     @po = current_user.with_pos.new form_params
     @po.status = 'submitted' if params[:submit]
     return redirect_to(root_path, success: "Form created") if @po.save
-    flash.now[:alert] = "You have an error when creating the form"
+    flash.now[:alert] = @po.errors.full_messages
     render :new
   end
 
