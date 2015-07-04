@@ -8,7 +8,18 @@
       = link_to "Project GSM", root_path, class: "navbar-brand"
     .collapse.navbar-collapse
       ul.nav.navbar-nav
-        li= link_to "View Forms", with_pos_path
+        li.dropdown
+          a.dropdown-toggle data-toggle="dropdown" href="#" role="button" aria-expanded="false"
+            span.glyphicon.glyphicon-list-alt
+            strong Forms
+            span.glyphicon.glyphicon-chevron-down
+          ul.dropdown-menu
+            = multidropdown "PO form" do
+              li= link_to "Create", new_with_po_path
+              li= link_to "View all", with_pos_path
+            = multidropdown "Without PO form" do
+              li= link_to "Create", new_without_po_path
+              li= link_to "View all", without_pos_path
       ul.nav.navbar-nav.navbar-right
         li.dropdown
           - if current_user

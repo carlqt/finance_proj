@@ -23,4 +23,16 @@ module ApplicationHelper
     end
     nil
   end
+
+  def multidropdown(title, options={}, &block)
+    content_tag :li, class: "dropdown-submenu" do
+      content = link_to '#', class: "has-submenu" do
+        title.html_safe + content_tag(:div, nil, class: "caret")
+      end
+
+      content += content_tag :ul, class: "dropdown-menu" do
+        block.call
+      end
+    end
+  end
 end

@@ -3,7 +3,7 @@ html
   head
     meta content="text/html; charset=UTF-8" http-equiv="Content-Type"
     title FinanceGsm
-    = stylesheet_link_tag    'application'
+    = stylesheet_link_tag 'application', "http://vadikom.github.io/smartmenus/src/addons/bootstrap/jquery.smartmenus.bootstrap.css"
     = csrf_meta_tags
   body
     = render 'layouts/navbar'
@@ -12,4 +12,4 @@ html
 
     .container
       = yield
-    = javascript_include_tag 'application'
+    = javascript_include_tag 'application', 'http://vadikom.github.io/smartmenus/src/jquery.smartmenus.js', "http://vadikom.github.io/smartmenus/src/addons/bootstrap/jquery.smartmenus.bootstrap.js"
