@@ -24,6 +24,10 @@ FactoryGirl.define do
     sequence(:page) {|n| n}
     total_amount 20
     status 'pending'
+
+    before(:create) do |with_po|
+      with_po.items << FactoryGirl.build(:item)
+    end
   end
 
 end

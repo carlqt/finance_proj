@@ -13,9 +13,8 @@
 
 FactoryGirl.define do
   factory :item do
-    description "MyText"
-quantity 1
-form_id 1
+    sequence(:description) { |n| "MyItem #{n}"}
+    sequence(:quantity) { |n| n }
   end
 
 end

@@ -18,6 +18,10 @@ FactoryGirl.define do
     sequence(:transaction_number) {|n| n }
     total_amount 20
     status 'pending'
+
+    before(:create) do |without_po|
+      without_po.items << FactoryGirl.build(:item)
+    end
   end
 
 

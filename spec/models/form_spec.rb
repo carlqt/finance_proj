@@ -45,6 +45,13 @@ RSpec.describe Form, :type => :model do
       it "increments sequentially" do
         expect(form.letter_code).to eq "2"
       end
+
+      context "when with_po form was created first" do
+        let!(:form) { create :without_po }
+        it "increments sequentially" do
+          expect(form.letter_code).to eq "2"
+        end
+      end
     end
   end
 end

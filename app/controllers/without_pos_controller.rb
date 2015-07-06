@@ -3,7 +3,7 @@ class WithoutPosController < ApplicationController
   before_action :initialize_po, except: [:index, :new, :create]
 
   def index
-    @form = WithoutPo.all.status(params[:status]).order(updated_at: :asc)
+    @form = WithoutPo.all.status(params[:status]).order(updated_at: :desc)
   end
 
   def new

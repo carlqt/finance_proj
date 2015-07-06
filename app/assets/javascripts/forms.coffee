@@ -13,3 +13,6 @@ jQuery ->
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).after($(this).data('fields').replace(regexp, time))
     event.preventDefault()
+
+  $('#form-input').on 'click', '.btn', ->
+    $(this).addClass("disabled")
