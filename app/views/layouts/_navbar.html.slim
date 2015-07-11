@@ -5,7 +5,8 @@
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to "Project GSM", root_path, class: "navbar-brand"
+      = link_to root_path, class: "navbar-brand" do
+        = image_tag "sysgen.png", id: "logo", size: "86x20"
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         li.dropdown
