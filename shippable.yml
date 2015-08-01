@@ -1,6 +1,7 @@
 language: ruby
+build_image: shippableimages/ubuntu1404_ruby
 rvm:
-  - 2.1.2
+  - 2.1.1
 Install:
   - source ~/.rvm/scripts/rvm
   - rvm install $SHIPPABLE_RUBY --verify-downloads 1
