@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 2.1.2
+Install:
+  - source ~/.rvm/scripts/rvm
+  - rvm install $SHIPPABLE_RUBY --verify-downloads 1
+  - source ~/.bashrc && ~/.rvm/scripts/rvm && rvm use $SHIPPABLE_RUBYinstale:
+  - bundle install --path vendor/bundle
+script:
+  - rake db:create
+  - rake db:migrate
+  - rake db:test:prepare
+  - rspec spec

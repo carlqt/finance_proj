@@ -67,7 +67,6 @@ group :test do
   gem 'database_cleaner'
   gem 'selenium-webdriver'
   gem 'poltergeist'
-  gem 'nyan-cat-formatter'
 end
 
 group :production do
